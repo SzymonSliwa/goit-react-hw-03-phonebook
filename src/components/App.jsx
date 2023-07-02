@@ -17,7 +17,7 @@ class App extends Component {
     filter: '',
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const getContacts = JSON.parse(localStorage.getItem('current-contacts'));
     if (getContacts) {
       this.setState({ contacts: getContacts });
@@ -25,7 +25,7 @@ class App extends Component {
     console.log(getContacts);
   }
 
-  async componentDidUpdate(prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.contacts !== this.state.contacts) {
       localStorage.setItem(
         'current-contacts',
